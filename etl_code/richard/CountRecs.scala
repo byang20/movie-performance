@@ -3,8 +3,8 @@ val filePath = "hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/fx/input/ecb-f
 val fullData = sc.textFile(filePath)
 val header = fullData.first()
 val tmpData = fullData.filter(row => row != header)
-val secondRow = tmpData.first()
-val data = tmpData.filter(row => row != secondRow)
+val firstRow = tmpData.first()
+val data = tmpData.filter(row => row != firstRow)
 
 // Count number of records
 val totalCount = data.count()
