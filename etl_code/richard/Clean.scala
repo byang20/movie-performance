@@ -1,16 +1,26 @@
-// Load the dataset, skipping the header
-val filePath = "input/ecb-fx-usd-quote.csv"
+// Load CSV into RDD, skipping header and first row
+val filePath = "hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/fx/input/ecb-fx-usd-quote.csv"
 val fullData = sc.textFile(filePath)
 val header = fullData.first()
-val data = fullData.filter(row => row != header)
+val tmpData = fullData.filter(row => row != header)
+val secondRow = tmpData.first()
+val data = tmpData.filter(row => row != secondRow)
 
-// Removing the first currency column (EUR) and handling nulls
-val cleanData = data.map(row => {
-  val columns = row.split(",").tail // Skipping the first column (EUR)
-  columns.map(col => if (col == "null" || col.isEmpty) "0" else col).mkString(",")
-})
+// Replace null values with 0.0
+val cleanData = data.map { row =>
+  row.split(",").map(value => if (value == "NaN") "0.0" else value).mkString(",")
+}
 
-// Write the cleaned data to HDFS
-val outputPath = "output/clean-ecb_fx_usd_quote.csv"
-cleanData.coalesce(1).saveAsTextFile(outputPath)
+// Collect the cleaned data
+val collectedCleanData = cleanData.collect()
+
+// Create a new array with the header
+val finalDataArray = header +: collectedCleanData
+
+// Convert the array back to an RDD
+val finalData = sc.parallelize(finalDataArray)
+
+// Write the final cleaned data to HDFS
+val outputPath = "hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/fx/clean/clean-ecb-fx-usd-quote.csv"
+finalData.coalesce(1).saveAsTextFile(outputPath)
 
