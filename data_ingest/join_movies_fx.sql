@@ -53,4 +53,3 @@ FROM
     movies m
 LEFT JOIN
     fx f ON m.year = f.year AND m.month = f.month;
-
