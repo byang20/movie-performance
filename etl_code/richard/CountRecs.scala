@@ -25,4 +25,3 @@ columnNames.zipWithIndex.foreach { case (colName, colIndex) =>
   println(s"Column $colName: $distinctCount distinct values")
 }
 
-

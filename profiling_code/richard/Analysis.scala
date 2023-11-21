@@ -57,3 +57,4 @@ headerColumns.zip(columnStats).foreach { case (columnName, (mean, median, mode, 
   println(f"Mean: $mean%.2f, Median: $median%.2f, Mode: $mode%.2f, Standard Deviation: $stdev%.2f")
   println("-" * 50) // Separator for readability
 }
+
