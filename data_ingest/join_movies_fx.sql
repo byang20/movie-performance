@@ -1,4 +1,4 @@
-INSERT OVERWRITE DIRECTORY 'hdfs://nyu-dataproc-m/user/bay2006_nyu_edu/proj/joined-quotes' 
+INSERT OVERWRITE DIRECTORY 'hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/data/project/joined_data' 
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
     SELECT 
@@ -14,6 +14,7 @@ FIELDS TERMINATED BY ','
         CONCAT('"', m.boxoffice, '"') AS boxoffice,
         CONCAT('"', m.currency, '"') AS currency,
     CASE
+        WHEN UPPER(m.currency) = 'USD' THEN 1
         WHEN UPPER(m.currency) = 'EUR' THEN f.eur
         WHEN UPPER(m.currency) = 'JPY' THEN f.jpy
         WHEN UPPER(m.currency) = 'BGN' THEN f.bgn
