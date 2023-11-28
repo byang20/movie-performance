@@ -57,4 +57,4 @@ SELECT * FROM (
         fx f ON m.year = f.year AND m.month = f.month
     ) subquery
 WHERE
-    subquery.exchange_rate IS NOT NULL LIMIT 30;
+    subquery.exchange_rate IS NOT NULL;
