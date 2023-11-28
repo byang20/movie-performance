@@ -1,5 +1,5 @@
 --Import movies table
-CREATE EXTERNAL TABLE movies (title string, year int, month int, duration int, genres string, countries string, rating double, votes int, budget bigint, boxoffice bigint, currency string)
+CREATE EXTERNAL TABLE movies (title string, year int, month int, genres string, duration int, countries string, rating double, votes int, budget bigint, boxoffice bigint, currency string)
 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
 STORED AS TEXTFILE LOCATION 'hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/clean';
 
