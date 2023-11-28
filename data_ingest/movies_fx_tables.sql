@@ -12,7 +12,10 @@ STORED AS TEXTFILE LOCATION 'hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/d
 CREATE VIEW temp_fx AS
 SELECT 
     Year, 
-    Month,
+    CASE
+        WHEN substr(Month, 1, 1) = '0' THEN substr(Month, 2)
+        ELSE Month
+    END as Month,
     AVG(cast(EUR as double)) as EUR,
     AVG(cast(JPY as double)) as JPY,
     AVG(cast(BGN as double)) as BGN,
