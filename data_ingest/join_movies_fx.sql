@@ -1,4 +1,4 @@
-INSERT OVERWRITE DIRECTORY 'hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/data/project/joined_data' 
+INSERT OVERWRITE DIRECTORY 'hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/joined_data' 
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
     SELECT 
