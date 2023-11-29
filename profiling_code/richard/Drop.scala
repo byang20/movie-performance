@@ -24,7 +24,7 @@ val newHeader = "Year,Month" + header.substring(header.indexOf(","))
 // Combine header with transformed data
 val finalDataArray = Seq(newHeader) ++ transformedData
 
-// Convert array back to an RDDv
+// Convert array back to an RDD
 val finalData = sc.parallelize(finalDataArray)
 
 // Write the final data to HDFS
