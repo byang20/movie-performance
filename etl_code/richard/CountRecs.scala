@@ -1,5 +1,5 @@
 // Load CSV into RDD, skipping header and first row
-val filePath = "hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/fx/input/ecb-fx-usd-quote.csv"
+val filePath = "hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/fx/input/ecb-fx-usd-quote.csv"
 val fullData = sc.textFile(filePath)
 val header = fullData.first()
 val tmpData = fullData.filter(row => row != header)

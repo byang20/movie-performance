@@ -1,5 +1,5 @@
 // Load CSV into RDD, removing header
-val filePath = "hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/fx/etl/etl-ecb-fx-usd-quote.csv"
+val filePath = "hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/fx/etl/etl-ecb-fx-usd-quote.csv"
 val fullData = sc.textFile(filePath)
 val header = fullData.first()
 val dataWithoutHeader = fullData.filter(row => row != header)
