@@ -36,4 +36,8 @@ The input data can be found in HDFS in the following folders respectively:
    * When prompted, enter your Hive namespace (ie. bob123_nyu_edu)
    * Creates `movies`, `fx`, `joined` (`movies` and `fx` joined on `Year` and `Date`), and `norm_joined` (contains normalized currency quantities) tables in the specified namespace
    * Populates `hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/joined_data`
+  
+### Analysis
+* Run `spark-shell --deploy-mode client -i src/ana_code/rating_boxoffice_return_analysis.scala` to perform statistical analysis using Spark ML between box office returns and user ratings
+  * Results are printed in the Spark console 
 
