@@ -1,5 +1,5 @@
 // Load CSV into RDD, removing header
-val filePath = "hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/fx/etl/etl-ecb-fx-usd-quote.csv"
+val filePath = "hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/fx/etl"
 val fullData = sc.textFile(filePath)
 val header = fullData.first()
 val dataWithoutHeader = fullData.filter(row => row != header)
@@ -28,6 +28,6 @@ val finalDataArray = Seq(newHeader) ++ transformedData
 val finalData = sc.parallelize(finalDataArray)
 
 // Write the final data to HDFS
-val outputPath = "hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/fx/clean/clean-ecb-fx-usd-quote.csv"
+val outputPath = "hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/fx/clean"
 finalData.coalesce(1).saveAsTextFile(outputPath)
 

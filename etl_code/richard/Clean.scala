@@ -18,6 +18,6 @@ val finalDataArray = header +: collectedCleanData
 val finalData = sc.parallelize(finalDataArray)
 
 // Write the final cleaned data to HDFS
-val outputPath = "hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/fx/etl/etl-ecb-fx-usd-quote.csv"
+val outputPath = "hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/fx/etl"
 finalData.coalesce(1).saveAsTextFile(outputPath)
 
