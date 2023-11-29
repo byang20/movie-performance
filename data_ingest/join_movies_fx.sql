@@ -1,18 +1,16 @@
-INSERT OVERWRITE DIRECTORY 'hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/joined_data' 
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ','
+CREATE TABLE joined AS
 SELECT * FROM (
     SELECT 
         CONCAT('"', m.title, '"') AS title,
-        CONCAT('"', m.year, '"') AS year,
-        CONCAT('"', m.month, '"') AS month,
-        CONCAT('"', m.duration, '"') AS duration,
+        m.year AS year,
+        m.month AS month,
         CONCAT('"', m.genres, '"') AS genres,
+        m.duration AS duration,
         CONCAT('"', m.countries, '"') AS countries,
-        CONCAT('"', m.rating, '"') AS rating,
-        CONCAT('"', m.votes, '"') AS votes,
-        CONCAT('"', m.budget, '"') AS budget,
-        CONCAT('"', m.boxoffice, '"') AS boxoffice,
+        m.rating AS rating,
+        m.votes AS votes,
+        m.budget AS budget,
+        m.boxoffice AS boxoffice,
         CONCAT('"', m.currency, '"') AS currency,
         CASE
             WHEN UPPER(m.currency) = 'USD' THEN 1
