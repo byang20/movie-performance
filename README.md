@@ -11,27 +11,26 @@ The input data can be found in HDFS in the following folders respectively:
 2. `hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/fx/input`
 
 ## How To Run
-*This assumes that you are affiliated with NYU and are able to access the university's High Performance Cluster (HPC) and have access to the root directory of the project in HDFS.*
+*This assumes that you are affiliated with NYU and are able to access the university's High Performance Cluster (HPC).*
 
 ### Movies
 
 ### FX Rates
 #### ETL
-1. Copy `scripts/run_fx_etl.sh` to your local directory
-2. Make the script executable: `chmod +x run_fx_etl.sh`
+1. Navigate to the `scripts` directory
+2. Make the FX Rates ETL script executable: `chmod +x run_fx_etl.sh`
 3. Run the script: `./run_fx_etl.sh`
-   * Creates a new directory `fx_etl_profiling_files` and copies relevant Scala scripts from HDFS
    * Runs `Clean.scala` and `Drop.scala` to perform ETL on the FX rates dataset.
    * Populates `hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/etl` and `hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/clean` respectively
   
 #### Data Profiling
-1. Navigate into `fx_etl_profiling_files`
+1. Navigate to the `src/etl_code/richard` directory
 2. Run `spark-shell --deploy-mode client -i CountRecs.scala` for basic analytics
 3. Run `spark-shell --deploy-mode client -i Analysis.scala` for more advanced analytics
 
 ### Data Ingest
-1. Copy `scripts/run_data_ingest.sh` to your local directory
-2. Make the script executable: `chmod +x run_data_ingest.sh`
+1. Navigate to the `scripts` directory
+2. Make the data ingestion script executable: `chmod +x run_data_ingest.sh`
 3. Run the script: `./run_data_ingest.sh`
    * When prompted, enter your Hive namespace (ie. bob123_nyu_edu)
    * Creates `movies`, `fx`, `joined` (`movies` and `fx` joined on `Year` and `Date`), and `norm_joined` (contains normalized currency quantities) tables in the specified namespace
@@ -40,4 +39,3 @@ The input data can be found in HDFS in the following folders respectively:
 ### Analysis
 * Run `spark-shell --deploy-mode client -i src/ana_code/rating_boxoffice_return_analysis.scala` to perform statistical analysis using Spark ML between box office returns and user ratings
   * Results are printed in the Spark console 
-
