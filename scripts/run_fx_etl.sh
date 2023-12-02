@@ -10,7 +10,7 @@ spark-shell --deploy-mode client -i <<EOF
 :quit
 EOF
 spark-shell --deploy-mode client -i <<EOF
-:load ../src/profiling_code/richard/Drop.scala
+:load ../src/etl_code/richard/Drop.scala
 :quit
 EOF
 
