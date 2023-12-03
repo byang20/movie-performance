@@ -27,11 +27,11 @@ Reference `scripts/movies_profiling_instructions.md`for instructions to perform 
 1. Navigate to the `scripts` directory
 2. Make the FX Rates ETL script executable: `chmod +x run_fx_etl.sh`
 3. Run the script: `./run_fx_etl.sh`
-   * Runs `Clean.scala` and `Drop.scala` to perform ETL on the FX rates dataset.
+   * Runs `src/etl_code/richard/Clean.scala` and `src/etl_code/richard/Drop.scala` to perform ETL on the FX Rates dataset.
    * Populates `hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/etl` and `hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/clean` respectively
   
 #### Data Profiling
-1. Navigate to the `src/etl_code/richard` directory
+1. Navigate to the `src/profiling_code/richard` directory
 2. Run `spark-shell --deploy-mode client -i CountRecs.scala` for basic analytics
 3. Run `spark-shell --deploy-mode client -i Analysis.scala` for more advanced analytics
 
