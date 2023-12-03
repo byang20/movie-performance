@@ -1,0 +1,7 @@
+1. Clear output directory for next step: `hdfs dfs -rm -R hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/profiling/preclean`
+2. Run the "UniqueRecs" MapReduce job located in `/profiling_code/brian/preclean`: `hadoop jar uniqueRecs.jar UniqueRecs {NULLFILL_PATH} hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/profiling/preclean`
+3. Print results of profiling: `hdfs dfs -cat hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/profiling/preclean/part-r-00000`
+4. Clear output directory for next step: `hdfs dfs -rm -R hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/profiling/postclean`
+5. Run the "UniqueRecs" MapReduce job located in `/profiling_code/brian/postclean`: `hadoop jar uniqueRecs.jar UniqueRecs hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/clean/clean-IMDb-movies.csv hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/profiling/postclean`
+6. Print results of profiling: `hdfs dfs -cat hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/profiling/postclean/part-r-00000`
+7. Run `/profiling_code/brian/profile.scala` for more advanced analytics: `spark-shell --deploy-mode client -i profile.scala`
