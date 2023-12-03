@@ -49,3 +49,5 @@ println("Highest avg box office returns by genre")
 genreRes.orderBy(desc("avg_boxoffice_return")).select("genre", "avg_boxoffice_return").show(5)
 println("Lowest avg box office returns by genre")
 genreRes.orderBy("avg_boxoffice_return").select("genre", "avg_boxoffice_return").show(5)
+
+System.exit(0)
