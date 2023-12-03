@@ -26,4 +26,4 @@ numericColumns.foreach(colName => {
       println("\n")
     })
 
-
+System.exit(0)
