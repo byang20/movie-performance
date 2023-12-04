@@ -91,7 +91,7 @@ movie-success-analysis
     │   │   │   ├── CleanReducer.class         
     │   │   │   ├── CleanReducer.java          
     │   │   │   └── clean.jar                  
-    │   │   └── nullfill                       # Nullfill scripts
+    │   │   └── nullfill                       # Nullfill script
     │   │       └── nullfill.scala             # Scala script for null value handling
     │   └── richard                            # ETL code by Richard (FX dataset)
     │       ├── Clean.scala                    # Scala script for initial FX data cleaning
