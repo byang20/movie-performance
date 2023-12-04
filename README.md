@@ -84,11 +84,11 @@ movie-success-analysis
     ├── etl_code                               # ETL (Extract, Transform, Load) codes
     │   ├── brian                              # ETL code by Brian (Movie dataset)
     │   │   ├── clean                          # Movie cleaning MapReduce files
-    │   │   │   ├── Clean.class                # Compiled Clean class
+    │   │   │   ├── Clean.class                
     │   │   │   ├── Clean.java                 # Java code for cleaning process
-    │   │   │   ├── CleanMapper.class          # Compiled Clean Mapper class
+    │   │   │   ├── CleanMapper.class          
     │   │   │   ├── CleanMapper.java           # Java code for cleaning mapper
-    │   │   │   ├── CleanReducer.class         # Compiled Clean Reducer class
+    │   │   │   ├── CleanReducer.class         
     │   │   │   ├── CleanReducer.java          # Java code for cleaning reducer
     │   │   │   └── clean.jar                  # Jar file for clean operation
     │   │   └── nullfill                       # Nullfill scripts
@@ -100,19 +100,19 @@ movie-success-analysis
     └── profiling_code                         # Code for data profiling
         ├── brian                              # Profiling code by Brian (Movie dataset)
         │   ├── postclean                      # Post-cleaning profiling MapReduce files
-        │   │   ├── UniqueRecs.class           # Compiled Unique Records class
+        │   │   ├── UniqueRecs.class           
         │   │   ├── UniqueRecs.java            # Java code for unique records calculation
-        │   │   ├── UniqueRecsMapper.class     # Compiled Unique Records Mapper class
+        │   │   ├── UniqueRecsMapper.class     
         │   │   ├── UniqueRecsMapper.java      # Java code for unique records mapper
-        │   │   ├── UniqueRecsReducer.class    # Compiled Unique Records Reducer class
+        │   │   ├── UniqueRecsReducer.class    
         │   │   ├── UniqueRecsReducer.java     # Java code for unique records reducer
         │   │   └── uniqueRecs.jar             # Jar file for unique records operation
         │   ├── preclean                       # Pre-cleaning profiling MapReduce files
-        │   │   ├── UniqueRecs.class           # Compiled Unique Records class
+        │   │   ├── UniqueRecs.class           
         │   │   ├── UniqueRecs.java            # Java code for unique records calculation
-        │   │   ├── UniqueRecsMapper.class     # Compiled Unique Records Mapper class
+        │   │   ├── UniqueRecsMapper.class     
         │   │   ├── UniqueRecsMapper.java      # Java code for unique records mapper
-        │   │   ├── UniqueRecsReducer.class    # Compiled Unique Records Reducer class
+        │   │   ├── UniqueRecsReducer.class    
         │   │   ├── UniqueRecsReducer.java     # Java code for unique records reducer
         │   │   └── uniqueRecs.jar             # Jar file for unique records operation
         │   └── profile.scala                  # Scala script for advanced post-clean Movie profiling
