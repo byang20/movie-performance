@@ -1,7 +1,7 @@
 The second part of the ETL on the movies dataset runs a MapReduce job called "Clean". The code for this has already been built in `src/etl_code/brian/clean`. If you would like to rebuild it, navigate to `src/etl_code/brian/clean` and run the following commands:
-1. `javac -classpath ``yarn classpath`` -d . CleanMapper.java`
-2. `javac -classpath ``yarn classpath`` -d . CleanReducer.java`
-3. `javac -classpath ``yarn classpath``:. -d . Clean.java`
+1. ``javac -classpath `yarn classpath` -d . CleanMapper.java``
+2. ``javac -classpath `yarn classpath` -d . CleanReducer.java``
+3. ``javac -classpath `yarn classpath`:. -d . Clean.java``
 4. `jar -cvf clean.jar *.class`
 
 To run the ETL code for movies, follow these steps:
