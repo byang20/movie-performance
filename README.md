@@ -48,3 +48,75 @@ Reference `scripts/movies_profiling_instructions.md`for instructions to perform 
   * Results are printed in the Spark console 
 * Run `spark-shell --deploy-mode client -i src/ana_code/country_genre_analysis.scala` to compute highest and lowest average ratings and box office returns for distinct countries and genres
   * Results are printed in the Spark console
+
+## Project Structure
+```
+movie-success-analysis
+│
+├── README.md                                  # Project overview and documentation
+│
+├── screenshots                                # Contains various screenshots for documentation
+│   ├── analytics
+│   ├── data_ingest
+│   ├── data_profiling
+│   │   ├── fx
+│   │   └── movies
+│   └── etl
+│       ├── fx
+│       └── movies
+│
+├── scripts                                    # Scripts for data processing and analysis
+│   ├── movies_etl_instructions.md             # Instructions for ETL process of Movie data
+│   ├── movies_profiling_instructions.md       # Instructions for profiling Movie data
+│   ├── run_data_ingest.sh                     # Script to run data ingestion
+│   └── run_fx_etl.sh                          # Script to execute ETL for FX data
+│
+└── src                                        # Source code for the project
+    ├── ana_code                               # Analysis codes
+    │   ├── country_genre_analysis.scala       # Scala script for country-genre analysis
+    │   └── rating_boxoffice_return_analysis.scala # Scala ML script for rating and box office return analysis
+    │
+    ├── data_ingest                            # SQL scripts for data ingestion
+    │   ├── join_movies_fx.sql                 # SQL for joining Movies and FX data
+    │   ├── movies_fx_tables.sql               # SQL for creating Movies and FX tables in Hive
+    │   └── normalize_joined.sql               # SQL for normalizing joined data
+    │
+    ├── etl_code                               # ETL (Extract, Transform, Load) codes
+    │   ├── brian                              # ETL code by Brian
+    │   │   ├── clean                          # Cleaning scripts
+    │   │   │   ├── Clean.class                # Compiled Clean class
+    │   │   │   ├── Clean.java                 # Java code for cleaning process
+    │   │   │   ├── CleanMapper.class          # Compiled Clean Mapper class
+    │   │   │   ├── CleanMapper.java           # Java code for cleaning mapper
+    │   │   │   ├── CleanReducer.class         # Compiled Clean Reducer class
+    │   │   │   ├── CleanReducer.java          # Java code for cleaning reducer
+    │   │   │   └── clean.jar                  # Jar file for clean operation
+    │   │   └── nullfill                       # Nullfill scripts
+    │   │       └── nullfill.scala             # Scala script for null value handling
+    │   └── richard                            # ETL code by Richard
+    │       ├── Clean.scala                    # Scala script for initial FX data cleaning
+    │       └── Drop.scala                     # Scala script for FX data dropping and transforming
+    │
+    └── profiling_code                         # Code for data profiling
+        ├── brian                              # Profiling code by Brian
+        │   ├── postclean                      # Post-cleaning profiling scripts
+        │   │   ├── UniqueRecs.class           # Compiled Unique Records class
+        │   │   ├── UniqueRecs.java            # Java code for unique records calculation
+        │   │   ├── UniqueRecsMapper.class     # Compiled Unique Records Mapper class
+        │   │   ├── UniqueRecsMapper.java      # Java code for unique records mapper
+        │   │   ├── UniqueRecsReducer.class    # Compiled Unique Records Reducer class
+        │   │   ├── UniqueRecsReducer.java     # Java code for unique records reducer
+        │   │   └── uniqueRecs.jar             # Jar file for unique records operation
+        │   ├── preclean                       # Pre-cleaning profiling scripts
+        │   │   ├── UniqueRecs.class           # Compiled Unique Records class
+        │   │   ├── UniqueRecs.java            # Java code for unique records calculation
+        │   │   ├── UniqueRecsMapper.class     # Compiled Unique Records Mapper class
+        │   │   ├── UniqueRecsMapper.java      # Java code for unique records mapper
+        │   │   ├── UniqueRecsReducer.class    # Compiled Unique Records Reducer class
+        │   │   ├── UniqueRecsReducer.java     # Java code for unique records reducer
+        │   │   └── uniqueRecs.jar             # Jar file for unique records operation
+        │   └── profile.scala                  # Scala script for profiling
+        └── richard                            # Profiling code by Richard
+            ├── Analysis.scala                 # Scala script for statistical analysis on clean FX data
+            └── CountRecs.scala                # Scala script for counting FX records
+```
