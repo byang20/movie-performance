@@ -13,3 +13,4 @@ To perform all the profiling for the movies dataset, run the following commands:
 5. Navigate to `src/profiling_code/brian/postclean/` and run the "UniqueRecs" MapReduce job: `hadoop jar uniqueRecs.jar UniqueRecs hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/clean/clean-IMDb-movies.csv hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/profiling/postclean`
 6. Print results of profiling: `hdfs dfs -cat hdfs://nyu-dataproc-m/user/rz2123_nyu_edu/project/data/movies/profiling/postclean/part-r-00000`
 7. For more advanced analytics, navigate to `src/profiling_code/brian/` and run `profile.scala`: `spark-shell --deploy-mode client -i profile.scala`
+    * Results will print in Spark console
