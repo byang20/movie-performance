@@ -58,3 +58,4 @@ headerColumns.zip(columnStats).foreach { case (columnName, (mean, median, mode, 
   println("-" * 50) // Separator for readability
 }
 
+System.exit(0)

@@ -49,3 +49,5 @@ val rfPredictions = rfModel.transform(testData)
 val rfEvaluator = new RegressionEvaluator().setLabelCol("label").setPredictionCol("prediction").setMetricName("mae")
 val rfMAE = rfEvaluator.evaluate(rfPredictions)
 println(s"Random Forest Regression - MAE: $rfMAE")
+
+System.exit(0)
