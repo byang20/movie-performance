@@ -25,12 +25,22 @@ df = df.withColumn("country", explode(split(col("countries"), ", ")))
 // Select only necessary columns
 df = df.select("genre", "country", "rating", "boxoffice_return").na.drop()
 
+// Filter out movies with extreme returns
 df = df.filter(col("boxoffice_return").cast("double") <= 100)
 
+// Find countries with less than 30 records
+// Filter out these countries from the original dataset
+// Calculate average returns and ratings for each country remaining
+val countryCounts = df.groupBy("country").count().filter(col("count") > 30)
+val filteredCountry = df.join(countryCounts, "country")
+val countryRes = filteredCountry.groupBy("country").agg(avg("rating").alias("avg_rating"), avg("boxoffice_return").alias("avg_boxoffice_return"))
 
-val countryRes = df.groupBy("country").agg(avg("rating").alias("avg_rating"), avg("boxoffice_return").alias("avg_boxoffice_return"))
-val genreRes = df.groupBy("genre").agg(avg("rating").alias("avg_rating"), avg("boxoffice_return").alias("avg_boxoffice_return"))
-
+// Find genres with less than 30 records
+// Filter out these genres from the original dataset
+// Calculate average returns and ratings for each genre remaining
+val genreCounts = df.groupBy("genre").count().filter(col("count") > 30)
+val filteredGenre = df.join(genreCounts, "genre")
+val genreRes = filteredGenre.groupBy("genre").agg(avg("rating").alias("avg_rating"), avg("boxoffice_return").alias("avg_boxoffice_return"))
 
 println("Highest avg ratings by country")
 countryRes.orderBy(desc("avg_rating")).select("country", "avg_rating").show(5)
