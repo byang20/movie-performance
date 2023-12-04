@@ -65,7 +65,7 @@ movie-success-analysis
 │       ├── fx
 │       └── movies
 │
-├── scripts                                    # Scripts for data processing and analysis
+├── scripts                                    # Scripts and instructions for data processing and analysis
 │   ├── movies_etl_instructions.md             # Instructions for ETL process of Movie data
 │   ├── movies_profiling_instructions.md       # Instructions for profiling Movie data
 │   ├── run_data_ingest.sh                     # Script to run data ingestion
@@ -82,8 +82,8 @@ movie-success-analysis
     │   └── normalize_joined.sql               # SQL for normalizing joined data
     │
     ├── etl_code                               # ETL (Extract, Transform, Load) codes
-    │   ├── brian                              # ETL code by Brian
-    │   │   ├── clean                          # Cleaning scripts
+    │   ├── brian                              # ETL code by Brian (Movie dataset)
+    │   │   ├── clean                          # Movie cleaning MapReduce files
     │   │   │   ├── Clean.class                # Compiled Clean class
     │   │   │   ├── Clean.java                 # Java code for cleaning process
     │   │   │   ├── CleanMapper.class          # Compiled Clean Mapper class
@@ -93,13 +93,13 @@ movie-success-analysis
     │   │   │   └── clean.jar                  # Jar file for clean operation
     │   │   └── nullfill                       # Nullfill scripts
     │   │       └── nullfill.scala             # Scala script for null value handling
-    │   └── richard                            # ETL code by Richard
+    │   └── richard                            # ETL code by Richard (FX dataset)
     │       ├── Clean.scala                    # Scala script for initial FX data cleaning
     │       └── Drop.scala                     # Scala script for FX data dropping and transforming
     │
     └── profiling_code                         # Code for data profiling
-        ├── brian                              # Profiling code by Brian
-        │   ├── postclean                      # Post-cleaning profiling scripts
+        ├── brian                              # Profiling code by Brian (Movie dataset)
+        │   ├── postclean                      # Post-cleaning profiling MapReduce files
         │   │   ├── UniqueRecs.class           # Compiled Unique Records class
         │   │   ├── UniqueRecs.java            # Java code for unique records calculation
         │   │   ├── UniqueRecsMapper.class     # Compiled Unique Records Mapper class
@@ -107,7 +107,7 @@ movie-success-analysis
         │   │   ├── UniqueRecsReducer.class    # Compiled Unique Records Reducer class
         │   │   ├── UniqueRecsReducer.java     # Java code for unique records reducer
         │   │   └── uniqueRecs.jar             # Jar file for unique records operation
-        │   ├── preclean                       # Pre-cleaning profiling scripts
+        │   ├── preclean                       # Pre-cleaning profiling MapReduce files
         │   │   ├── UniqueRecs.class           # Compiled Unique Records class
         │   │   ├── UniqueRecs.java            # Java code for unique records calculation
         │   │   ├── UniqueRecsMapper.class     # Compiled Unique Records Mapper class
@@ -115,8 +115,8 @@ movie-success-analysis
         │   │   ├── UniqueRecsReducer.class    # Compiled Unique Records Reducer class
         │   │   ├── UniqueRecsReducer.java     # Java code for unique records reducer
         │   │   └── uniqueRecs.jar             # Jar file for unique records operation
-        │   └── profile.scala                  # Scala script for profiling
-        └── richard                            # Profiling code by Richard
+        │   └── profile.scala                  # Scala script for advanced post-clean Movie profiling
+        └── richard                            # Profiling code by Richard (FX dataset)
             ├── Analysis.scala                 # Scala script for statistical analysis on clean FX data
             └── CountRecs.scala                # Scala script for counting FX records
 ```
